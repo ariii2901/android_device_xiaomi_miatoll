@@ -10,6 +10,15 @@ $(call inherit-product, device/xiaomi/miatoll/device.mk)
 # Inherit some common Elixir stuff.
 $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
+# Inherit Google Camera
+$(call inherit-product, vendor/xiaomi/miatoll-gcam/miatoll-gcam-vendor.mk)
+
+TARGET_USES_AOSP_RECOVERY := true
+TARGET_INCLUDE_STOCK_ACORE := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_GAPPS_ARCH := arm64
+
 # Bootanimation Resolution
 TARGET_BOOT_ANIMATION_RES := 1080
 
@@ -23,14 +32,9 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Miatoll
 PRODUCT_MANUFACTURER := Xiaomi
 CUSTOM_DEVICE := miatoll
+CUSTOM_BUILD_TYPE := Released_By_ARINDAM
+
+IS_PHONE := true
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 WITH_GMS := true
-
-IS_PHONE := true
-CUSTOM_BUILD_TYPE := OFFICIAL
-TARGET_SUPPORTS_GOOGLE_RECORDER := false
-TARGET_INCLUDE_STOCK_ACORE := false
-TARGET_INCLUDE_LIVE_WALLPAPERS := false
-TARGET_SUPPORTS_QUICK_TAP := true
-TARGET_FACE_UNLOCK_SUPPORTED := true
